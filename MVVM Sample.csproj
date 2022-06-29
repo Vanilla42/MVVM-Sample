@@ -65,7 +65,6 @@
     </Compile>
     <Compile Include="Models\Field.cs" />
     <Compile Include="Models\NodeChain.cs" />
-    <Compile Include="Models\Numbers.cs" />
     <Compile Include="Models\Node.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
     <Compile Include="Views\GameWindow.xaml.cs">

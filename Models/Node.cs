@@ -22,18 +22,11 @@ namespace MVVM_Sample.Models
             set { _indexY = value; }
         }
 
-        private Numbers _number;
-        public Numbers Number
+        private int _number;
+        public int Number
         {
             get { return _number; }
             set { _number = value; }
-        }
-
-        private List<Numbers> _numbersAvailable;
-        public List<Numbers> NumbersAvailable
-        {
-            get { return _numbersAvailable; }
-            set { _numbersAvailable = value; }
         }
 
         public Node(int indexX, int indexY)
@@ -42,7 +35,7 @@ namespace MVVM_Sample.Models
             IndexY = indexY;
         }
 
-        public Node(int indexX, int indexY, Numbers number)
+        public Node(int indexX, int indexY, int number)
         {
             IndexX = indexX;
             IndexY = indexY;

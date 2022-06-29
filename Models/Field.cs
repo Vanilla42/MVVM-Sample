@@ -8,45 +8,49 @@ namespace MVVM_Sample.Models
 {
     public class Field
     {
-        Node[,] Nodes;
+        List<int> numbersAll;
 
         NodeChain[] NodeChains;
 
+        public Node[,] Nodes;
+
         public Field()
         {
+            numbersAll = new List<int>() { 1, 2, 3, 4 };
             Nodes = GenerateNodes();
             //NodeChains = ConnectNodes();
-            Console.WriteLine(Nodes.AsQueryable().ToString());
+            //Console.WriteLine(Nodes.AsQueryable().ToString());
         }
 
         private Node[,] GenerateNodes()
         {
             Node[,] nodes = new Node[4, 4];
 
-            // Get list of all number values.
-            Array numbersAllArray = Enum.GetValues(typeof(Numbers));
-            List<Numbers> numbersAll = new List<Numbers>();
-            foreach (Numbers n in numbersAllArray)
-            {
-                numbersAll.Add(n);
-            }
-
             for (int x = 0; x < 4; x++)
             {
                 for (int y = 0; y < 4; y++)
                 {
-                    // Get list of unused number values.
-                    List<Numbers> numbersUnused = numbersAll;
+                    // Get list of possible number values.
+                    List<int> numbersPossible = numbersAll;
                     // Remove used numbers in the same row and the same column.
                     for (int i = 0; i < x; i++)
-                        numbersUnused.Remove(nodes[i, y].Number);
+                        numbersPossible.Remove(nodes[i, y].Number);
                     for (int i = 0; i < y; i++)
-                        numbersUnused.Remove(nodes[x, i].Number);
+                        numbersPossible.Remove(nodes[x, i].Number);
 
-                    Random random = new Random();
-                    Numbers randomNumber = numbersUnused[random.Next(numbersUnused.Count)];
+                    if (numbersPossible.Count == 0)
+                    {
+                        nodes[x, y] = new Node(x, y, 0);
+                        //throw new Exception("ERROR creating the field.");
+                    }
 
-                    nodes[x, y] = new Node(x, y, randomNumber);
+                    else
+                    {
+                        Random random = new Random();
+                        int randomNumber = numbersPossible[random.Next(numbersPossible.Count)];
+
+                        nodes[x, y] = new Node(x, y, randomNumber);
+                    }
                 }
             }   
             return nodes;

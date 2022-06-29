@@ -4,18 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVM_Sample"
+        xmlns:vm="clr-namespace:MVVM_Sample.ViewModels"
         mc:Ignorable="d"
-        
-        d:DataContext="local:GameViewModel"
         
         Title="Game" Height="400" Width="400" ResizeMode="NoResize" SnapsToDevicePixels="True">
 
     <!--d:DataContext="{d:DesignInstance Type=local:MainPageData}"-->
 
-    <!--<Window.DataContext>
-        <ViewModel:GameViewModel />
-    </Window.DataContext>-->
-    
+    <Window.DataContext>
+        <vm:GameViewModel />
+    </Window.DataContext>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -30,7 +29,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button />
+        <Button x:Name="node00" Grid.Column="0" Grid.Row="0"
+                Content="{Binding Numbers}"
+                />
 
     </Grid>
 </Window>
