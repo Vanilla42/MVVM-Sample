@@ -29,6 +29,13 @@ namespace MVVM_Sample.Models
             set { _number = value; }
         }
 
+        private Chain _chain;
+        public Chain Chain
+        {
+            get { return _chain; }
+            set { _chain = value; }
+        }
+
         public Node(int indexX, int indexY)
         {
             IndexX = indexX;

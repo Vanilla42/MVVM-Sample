@@ -6,32 +6,102 @@
         xmlns:local="clr-namespace:MVVM_Sample"
         xmlns:vm="clr-namespace:MVVM_Sample.ViewModels"
         mc:Ignorable="d"
-        
-        Title="Game" Height="400" Width="400" ResizeMode="NoResize" SnapsToDevicePixels="True">
+        WindowStyle="None" Title="Game" Height="450" Width="400" ResizeMode="NoResize" SnapsToDevicePixels="True">
 
     <!--d:DataContext="{d:DesignInstance Type=local:MainPageData}"-->
-
+    <!--
+    (APP) -> GAMEWINDOW -> GAMEVIEWMODEL -> FIELD -> (FIELDGENERATOR)
+    -->
+    
     <Window.DataContext>
         <vm:GameViewModel />
     </Window.DataContext>
 
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="node00" Grid.Column="0" Grid.Row="0"
-                Content="{Binding Numbers}"
-                />
+        <Grid Grid.Row="0">
+            <Button x:Name="exitButton" Command="" />
+        </Grid>
 
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="node00" Grid.Column="0" Grid.Row="0"
+                Content="{Binding Number00}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node01" Grid.Column="0" Grid.Row="1"
+                Content="{Binding Number01}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node02" Grid.Column="0" Grid.Row="2"
+                Content="{Binding Number02}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node03" Grid.Column="0" Grid.Row="3"
+                Content="{Binding Number03}"
+                Style="{StaticResource StyleButtonNode}" />
+
+            <Button x:Name="node10" Grid.Column="1" Grid.Row="0"
+                Content="{Binding Number10}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node11" Grid.Column="1" Grid.Row="1"
+                Content="{Binding Number11}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node12" Grid.Column="1" Grid.Row="2"
+                Content="{Binding Number12}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node13" Grid.Column="1" Grid.Row="3"
+                Content="{Binding Number13}"
+                Style="{StaticResource StyleButtonNode}" />
+
+            <Button x:Name="node20" Grid.Column="2" Grid.Row="0"
+                Content="{Binding Number20}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node21" Grid.Column="2" Grid.Row="1"
+                Content="{Binding Number21}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node22" Grid.Column="2" Grid.Row="2"
+                Content="{Binding Number22}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node23" Grid.Column="2" Grid.Row="3"
+                Content="{Binding Number23}"
+                Style="{StaticResource StyleButtonNode}" />
+
+            <Button x:Name="node30" Grid.Column="3" Grid.Row="0"
+                Content="{Binding Number30}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node31" Grid.Column="3" Grid.Row="1"
+                Content="{Binding Number31}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node32" Grid.Column="3" Grid.Row="2"
+                Content="{Binding Number32}"
+                Style="{StaticResource StyleButtonNode}" />
+            <Button x:Name="node33" Grid.Column="3" Grid.Row="3"
+                Content="{Binding Number33}"
+                Style="{StaticResource StyleButtonNode}" />
+
+        </Grid>
     </Grid>
+    
 </Window>
